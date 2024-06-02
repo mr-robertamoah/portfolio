@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ContactController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -14,6 +15,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::post('/contacts', [ContactController::class, 'createContact'])->name('api.contacts.create');
+
+Route::middleware('auth:sanctum')->group(function () {
+
+    Route::get('/user', function (Request $request) {
+        return $request->user();
+    });
+
+    Route::get('/contacts', [ContactController::class, 'getContacts'])->name('api.contacts');
+    Route::post('/contacts/{contactId}', [ContactController::class, 'respondToContact'])->name('api.contacts.response');
 });
+
