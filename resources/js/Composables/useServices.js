@@ -3,7 +3,7 @@ export default function useProject() {
         {
             id: 1,
             name: "LetsProgram",
-            description: "This is an initiative to bring coding to basic and junior high levels of our educational system. If you are a school interested in having your learners study programming and build interesting web applications while being introduced to the world of technology.",
+            description: "This is an initiative to bring coding to basic and junior high levels of our educational system. If your school is interested in having it's learners study programming and build interesting web applications while being introduced to the world of technology.",
             allowContact: true,
             detailsPage: '/letsprogram'
         },

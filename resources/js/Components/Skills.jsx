@@ -10,7 +10,7 @@ export default function Skills() {
     ]
     const detailedSkills = {
         'Progamming Languages': ['C', 'PHP', 'Javascript', 'Python', 'Dart', ],
-        'Frameworks': ['Laravel', 'Nestjs', 'Nextjs', 'Vuejs', 'Reactjs', 'Flask', 'Flutter'],
+        'Frameworks': ['Laravel', 'Nestjs', 'Nextjs', 'Node Express', 'Vuejs', 'Reactjs', 'Flask', 'Flutter'],
         'DevOps': ['Git', 'Database Management', 'Bash', 'Server Management'],
         'Software': ['Figma', 'MYSQL Workbench', 'Inkscape' ],
     }

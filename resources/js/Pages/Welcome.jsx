@@ -170,7 +170,7 @@ export default function Welcome() {
                 <div
                     className='w-[80%] mx-auto mt-4 text-slate-600 bg-slate-200 p-4 text-sm text-center'
                 >
-                    These are are few of the things with which I am familiar.
+                    These are few of the things with which I am familiar.
                 </div>
 
                 <div className="w-full mx-auto sm:w-[80%] lg:w-[70%] sm:px-6 lg:px-8 ">

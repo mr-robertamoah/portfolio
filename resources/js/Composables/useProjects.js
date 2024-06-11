@@ -4,7 +4,7 @@ export default function useProjects() {
         {
             id: 1,
             name: "TalkTherapy",
-            description: "This is an web application that seeks to promote mental health by making it easy for users to connect with professional and verified counsellors.",
+            description: "This is a web application that seeks to promote mental health by making it easy for users to connect with professional and verified counsellors.",
             site: "https://talktherapy.tech",
             github: {name: "TalkTherapy", link: "https://github.com/mr-robertamoah/TalkTherapy"},
             stage: 4,
