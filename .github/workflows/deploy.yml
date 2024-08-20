@@ -18,18 +18,14 @@ jobs:
       with:
         ssh-private-key: ${{ secrets.MAIN_AWS_EC2_KEY }}
 
-    - name: Copy files to repo directory
-      run: |
-        scp -o StrictHostKeyChecking=no -r ./ ubuntu@51.21.51.233:/tmp/deploy
-
     - name: ssh into instance and run code
       env:
         DIR_PATH: /var/www/${{ secrets.MAIN_AWS_EC2_PORTFOLIO_DIR }}
       run: |
         ssh -o StrictHostKeyChecking=no ubuntu@51.21.51.233 << 'EOF'
-          sudo cp -r /tmp/deploy/* $DIR_PATH
+          sudo cd $DIR_PATH
+          git pull
           sudo chmod -R $USER:$USER $DIR_PATH
-          cd $DIR_PATH
           npm run build
           php artisan cache:clear
           sudo chmod -R www-data:www-data storage
