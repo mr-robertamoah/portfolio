@@ -24,5 +24,5 @@ jobs:
       env:
         DIR_PATH: /var/www/${{ secrets.MAIN_AWS_EC2_PORTFOLIO_DIR }}
       run: |
-        ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no ${{ secrets.MAIN_AWS_EC2_USER }}@${{ secrets.MAIN_AWS_EC2_IP }} "sudo cd $DIR_PATH && git pull && sudo chmod -R $USER:$USER $DIR_PATH && npm run build && php artisan cache:clear && sudo chmod -R www-data:www-data storage && sudo chmod -R www-data:www-data bootstrap/cache
+        ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no ${{ secrets.MAIN_AWS_EC2_USER }}@${{ secrets.MAIN_AWS_EC2_IP }} "sudo cd $DIR_PATH && git pull && sudo chmod -R $USER:$USER $DIR_PATH && npm run build && php artisan cache:clear && sudo chmod -R www-data:www-data storage && sudo chmod -R www-data:www-data bootstrap/cache"
       
