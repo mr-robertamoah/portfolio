@@ -13,16 +13,18 @@ jobs:
     - name: Check out repository
       uses: actions/checkout@v4.1.7
 
-    - name: Set up SSH
-      run: |
-        mkdir -p ~/.ssh
-        echo "${{ secrets.MAIN_AWS_EC2_KEY }}" > ~/.ssh/id_rsa
-        chmod 600 ~/.ssh/id_rsa
-        ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
+    - name: Configure AWS
+      uses: aws-actions/configure-aws-credentials@e3dd6a429d7300a6a4c196c26e071d42e0343502
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY }}
+        aws-secret_access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
-    - name: ssh into instance and run code
+    - name: Deploy and run some code
       env:
         DIR_PATH: /var/www/${{ secrets.MAIN_AWS_EC2_PORTFOLIO_DIR }}
       run: |
-        ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no ${{ secrets.MAIN_AWS_EC2_USER }}@${{ secrets.MAIN_AWS_EC2_IP }} "sudo cd $DIR_PATH && git pull && sudo chmod -R $USER:$USER $DIR_PATH && npm run build && php artisan cache:clear && sudo chmod -R www-data:www-data storage && sudo chmod -R www-data:www-data bootstrap/cache"
-      
+        aws ssm send-command \
+            --instance-ids "${{ secret.INSTANCE_ID }}" \
+            --document-name "AWS-RunShellScript" \
+            --parameters 'commands=["sudo cd $DIR_PATH", "git pull", "sudo chmod -R $USER:$USER $DIR_PATH", "npm run build", "php artisan cache:clear", "sudo chmod -R www-data:www-data storage", "sudo chmod -R www-data:www-data bootstrap/cache"]' \
+            --comment "Deploying application code"
