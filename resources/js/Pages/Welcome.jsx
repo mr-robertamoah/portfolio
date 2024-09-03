@@ -95,13 +95,13 @@ export default function Welcome() {
         >
             <Head title="Welcome" />
 
-            <div className="bg-gradient-to-br from-blue-500 via-purple-600 to-pink-300 h-[90vh] border-b border-gray-100 relative">
+            <div className="bg-gradient-to-br from-blue-800 to-purple-800 h-[95vh] border-b border-gray-100 relative">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20">
-                    <div className='space-y-10 md:space-x-10 md:flex md:justify-between md:items-center'>
-                        <div>
+                    <div className='space-y-10 md:space-x-10 md:grid md:grid-cols-4 md:items-center'>
+                        <div className='col-span-2'>
                             <div className='relative w-fit pr-10 z-[1] pl-2 py-2'>
                                 <div 
-                                    className="flex z-[3] justify-between bg-white text-5xl font-bold bg-gradient-to-r from-blue-700 to-violet-500 bg-clip-text w-fit text-transparent">
+                                    className="flex z-[3] justify-between bg-white text-5xl md:text-7xl font-bold bg-gradient-to-r from-blue-700 to-violet-500 bg-clip-text w-fit text-transparent">
                                     WELCOME
                                 </div>
                                 <div className='bg-white w-full h-full absolute top-0 left-0 z-[-1] rounded'>
@@ -111,7 +111,7 @@ export default function Welcome() {
 
                             <div className='relative w-fit pr-10 z-[1] pl-2 py-2 mt-20'>
                                 <WriteableText 
-                                    className="flex z-[3] justify-between bg-white text-3xl font-bold bg-gradient-to-r from-blue-700 to-violet-500 bg-clip-text w-fit text-transparent"
+                                    className="flex z-[3] justify-between bg-white text-3xl md:text-4xl font-bold bg-gradient-to-r from-blue-700 to-violet-500 bg-clip-text w-fit text-transparent"
                                     message={'Your Full-Stack Developer'}
                                 />
                                 <div className='bg-white w-full h-full absolute top-0 left-0 z-[-1] rounded'>
@@ -120,15 +120,18 @@ export default function Welcome() {
                             </div>
                         </div>
                         
-                        <div className='w-full flex justify-center md:block md:w-[40%] md:mr-8'>
-                            <div className='flex relative mt-10 md:mt-0'>
+                        <div className='col-span-2'>
+                            <div className='w-fit relative mx-auto'>
                                 
-                                <ApplicationLogo className="w-28 h-28 sm:w-32 sm:h-32 lg:w-44 lg:h-44" />
+                                <ApplicationLogo className="w-28 h-28 sm:w-32 sm:h-32 lg:w-44 lg:h-44 mx-auto" />
                             </div>
                         </div>
                     </div>
                 </div>
                 
+                <div className='absolute bottom-0 left-0 w-full flex justify-center text-white font-bold'>
+                    <div className='mb-5 text-lg md:text-2xl'>let us build cool stuff, one line of code at a time</div>
+                </div>
             </div>
 
             <div className="py-12">
@@ -191,7 +194,7 @@ export default function Welcome() {
             </div>
             
             <div className="py-6">
-                <div className="w-full mx-auto sm:w-[80%] lg:w-[70%] sm:px-6 lg:px-8">
+                <div className="w-full mx-auto sm:w-[80%] lg:w-[70%] sm:px-6 lg:px-8 p-2">
                     <div className='z-[3] text-nowrap text-2xl mb-4 font-bold bg-gradient-to-r from-blue-700 to-violet-500 bg-clip-text w-fit text-transparent'>Code Snippets</div>
                     <div className="overflow-hidden">
                         <div className='w-[90%] mx-auto md:w-[80%] flex justify-start space-y-4 flex-col items-center px-4 pb-4'>

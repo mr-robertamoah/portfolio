@@ -20,8 +20,10 @@ export default function WriteableText({ message = '', speed = 100, className = '
     }
 
     return (
-        <div {...props} className={`block font-medium text-sm text-gray-700 ` + className}>
-            { message.slice(0, messageIndex) }
+        <div className="relative">
+            <div {...props} className={`block font-medium text-sm text-gray-700 text-nowrap ` + className}>
+                { message.slice(0, messageIndex) }
+            </div>
         </div>
     );
 }
