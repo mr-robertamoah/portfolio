@@ -95,7 +95,7 @@ export default function Welcome() {
         >
             <Head title="Welcome" />
 
-            <div className="bg-gradient-to-br from-blue-800 to-purple-800 h-[95vh] border-b border-gray-100 relative">
+            <div className="bg-gradient-to-br from-blue-800 to-purple-800 animate-gradient h-[95vh] border-b border-gray-100 relative">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20">
                     <div className='space-y-10 md:space-x-10 md:grid md:grid-cols-4 md:items-center'>
                         <div className='col-span-2'>
@@ -130,7 +130,7 @@ export default function Welcome() {
                 </div>
                 
                 <div className='absolute bottom-0 left-0 w-full flex justify-center text-white font-bold'>
-                    <div className='mb-5 text-lg md:text-2xl'>let us build cool stuff, one line of code at a time</div>
+                    <div className='mb-5 text-lg md:text-2xl'>let us build cool application, one line of code at a time</div>
                 </div>
             </div>
 
@@ -223,7 +223,7 @@ export default function Welcome() {
             </div>
 
             <div className="py-12 bg-slate-200">
-                <div className="w-full mx-auto sm:w-[90%] lg:w-[70%] sm:px-6 lg:px-8">
+                <div className="w-full mx-auto lg:w-[90%] px-2 sm:px-6 lg:px-8">
                     <div className="overflow-hidden sm:rounded-lg p-2">
                         <Projects/>
                     </div>
