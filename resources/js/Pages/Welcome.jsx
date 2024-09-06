@@ -130,7 +130,7 @@ export default function Welcome() {
                 </div>
                 
                 <div className='absolute bottom-0 left-0 w-full flex justify-center text-white font-bold'>
-                    <div className='mb-5 text-lg md:text-2xl'>let us build cool application, one line of code at a time</div>
+                    <div className='mb-5 text-lg md:text-2xl'>let us build cool stuff, one line of code at a time</div>
                 </div>
             </div>
 
