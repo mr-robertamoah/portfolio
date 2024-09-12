@@ -17,7 +17,7 @@ export default function Projects({ className = '', children, ...props }) {
             </div>
             <div className="mt-2 mb-4 mx-auto w-[90%] text-gray-600 text-sm">This section shows the projects on which I am working, while indicating the various stages they have undergone.</div>
 
-            <div className={`grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 px-16 md:px-4 pb-20 gap-5`}>
+            <div className={`grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 px-3 sm:px-8 md:px-4 pb-20 space-y-10 md:space-y-0 md:gap-10`}>
                 {
                     projects.map((project) => (
                         <Project

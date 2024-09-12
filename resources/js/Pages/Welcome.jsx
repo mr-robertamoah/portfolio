@@ -109,10 +109,11 @@ export default function Welcome() {
                                 </div>
                             </div>
 
-                            <div className='relative w-fit pr-10 z-[1] pl-2 py-2 mt-20'>
+                            <div className='relative w-fit mx-auto pr-10 z-[1] pl-2 py-2 mt-20'>
                                 <WriteableText 
-                                    className="flex z-[3] justify-between bg-white text-3xl md:text-4xl font-bold bg-gradient-to-r from-blue-700 to-violet-500 bg-clip-text w-fit text-transparent"
+                                    className="flex z-[3] justify-between bg-white text-xl md:text-2xl font-bold bg-gradient-to-r from-blue-700 to-violet-500 bg-clip-text w-fit text-transparent"
                                     message={'Your Full-Stack Developer'}
+                                    speed={200}
                                 />
                                 <div className='bg-white w-full h-full absolute top-0 left-0 z-[-1] rounded'>
 
@@ -247,7 +248,7 @@ export default function Welcome() {
             </div>
 
             <div className="py-12 bg-slate-200">
-                <div className="w-full mx-auto lg:w-[90%] px-2 sm:px-6 lg:px-8">
+                <div className="w-full sm:px-6 lg:px-8">
                     <div className="overflow-hidden sm:rounded-lg p-2">
                         <Projects/>
                     </div>
