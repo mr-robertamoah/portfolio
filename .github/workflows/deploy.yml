@@ -25,5 +25,5 @@ jobs:
         aws ssm send-command \
             --instance-ids "i-0ceef8e041cbec9af" \
             --document-name "AWS-RunShellScript" \
-            --parameters 'commands=["sudo -u ubuntu bash -c \"cd /var/www/robertamoah && git pull && chown -R $USER:$USER . && npm run build && php artisan cache:clear && chown -R www-data:www-data storage && chown -R www-data:www-data bootstrap/cache\""]' \
+            --parameters 'commands=["sudo -u ubuntu bash -c \"cd /var/www/robertamoah && git pull && chown -R ubuntu:ubuntu . && npm run build && php artisan cache:clear && chown -R www-data:www-data storage && chown -R www-data:www-data bootstrap/cache\""]' \
             --comment "Deploying application code"
