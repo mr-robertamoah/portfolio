@@ -12,16 +12,17 @@ export default function Projects({ className = '', children, ...props }) {
 
     return (
         <div {...props} className={`block font-medium text-sm text-gray-700 ` + className}>
-            <div className='z-[3] text-nowrap bg-white text-2xl mb-4 font-bold bg-gradient-to-r from-blue-700 to-violet-500 bg-clip-text w-fit text-transparent'>Projects</div>
+            <div className="w-full mx-auto lg:w-[90%] px-2 sm:px-6 lg:px-8">
+                <div className='z-[3] text-nowrap bg-white text-2xl mb-4 font-bold bg-gradient-to-r from-blue-700 to-violet-500 bg-clip-text w-fit text-transparent'>Projects</div>
+            </div>
             <div className="mt-2 mb-4 mx-auto w-[90%] text-gray-600 text-sm">This section shows the projects on which I am working, while indicating the various stages they have undergone.</div>
 
-            <div className={`flex items-center pl-16 p-10 pb-20 space-x-36 overflow-hidden overflow-x-auto ${projects.length > 1 ? 'justify-start' : 'justify-center'}`}>
+            <div className={`grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 px-16 md:px-4 pb-20 gap-5`}>
                 {
                     projects.map((project) => (
                         <Project
                             project={project}
                             key={project.id}
-                            className="shrink-0 min-w-full sm:min-w-[70%]"
                         />
                     ))
                 }

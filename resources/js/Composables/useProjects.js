@@ -4,6 +4,7 @@ export default function useProjects() {
         {
             id: 1,
             name: "TalkTherapy",
+            tagline: "talk your way to a better mental state",
             description: "This is a web application that seeks to promote mental health by making it easy for users to connect with professional and verified counsellors.",
             site: "https://talktherapy.tech",
             github: {name: "TalkTherapy", link: "https://github.com/mr-robertamoah/TalkTherapy"},
@@ -14,6 +15,7 @@ export default function useProjects() {
         {
             id: 2,
             name: "YourEdu",
+            tagline: "learn through socialization",
             description: "This is an web application that seeks use socialization as a tool to bring equitable education to all. ",
             site: "",
             github: {name: "YourEdu", link: "https://github.com/mr-robertamoah/YourEdu"},
@@ -24,11 +26,13 @@ export default function useProjects() {
         {
             id: 3,
             name: "dto",
+            tagline: "create objects from arrays and request for your services and actions",
             description: "This is a laravel package that makes transfer of data in between classes or functions easier by providing ways of mapping the object variables to data using arrays or requests.",
             site: "",
             github: {name: "dto", link: "https://github.com/mr-robertamoah/dto"},
             stage: 6,
             allowContribution: true,
+            contributionMessage: null,
             type: ProjectTypes.openSource
         },
         {

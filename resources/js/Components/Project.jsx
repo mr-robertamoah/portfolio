@@ -11,13 +11,15 @@ import Select from "./Select";
 
 export default function Project({ className = '', project = null, children, ...props }) {
 
-    const stages = ['Idea', 'Development', 'Deployment', 'User Testing', 'Maintaining']
+    const DESCRIPTION_LENGTH = 200
+    const stages = ['Planning', 'Designing', 'Development', 'Deployment', 'User Testing', 'Maintaining']
 
     const { modalData, showModal, closeModal } = useModal()
     const { alertData, showSuccessAlert, showFailureAlert, clearAlert } = useAlert()
-
+    
     const [contacting, setContacting] = useState(false)
-
+    const [ showFullDescription, setShowFullDescription ] = useState(true)
+    const [ showStages, setShowStages ] = useState(false)
     const [contactData, setContactData] = useState({
         'name': '',
         'email': '',
@@ -29,8 +31,13 @@ export default function Project({ className = '', project = null, children, ...p
     })
 
     useEffect(() => {
+        if (!project?.description) return
+
+        if (project.description.length > DESCRIPTION_LENGTH + 10)
+            return setShowFullDescription(false)
         
-    }, [])
+        setShowFullDescription(true)
+    }, [project?.description])
     
     async function submitContact(e) {
         e.preventDefault()
@@ -93,59 +100,101 @@ export default function Project({ className = '', project = null, children, ...p
     }
 
     return (
-        <>
-            <div {...props} className={`block relative font-medium text-sm text-gray-700 rounded-md bg-gradient-to-br w-[90%] sm:w-[70%] from-blue-300 to-indigo-500 via-blue-600` + className}>
-                <div className="absolute mt-5 -top-10 -left-8 w-fit pr-10 z-[1] pl-2 py-2 cursor-pointer mb-3">
+        <div className="flex flex-col">
+            <div {...props} className={`font-medium text-sm text-gray-700 rounded-md bg-white w-full ` + className}>
+                <div className="mx-auto mt-8 mb-10 flex items-center space-x-2 justify-between w-fit bg-gray-200 rounded-sm p-2">
+                    <div className="rounded-full w-2 h-2 bg-slate-600"></div>
+                    <div className="text-xs lowercase">{project.type} project</div>
+                </div>
+
+                <div className="mt-5 w-fit relative cursor-pointer mb-2 mx-auto">
                     <div 
-                        className="flex z-[3] text-nowrap justify-between bg-white text-lg font-bold bg-gradient-to-r from-blue-700 to-violet-500 bg-clip-text w-fit text-transparent">
+                        className="flex text-nowrap justify-between bg-white text-[24px] lg:text-[28px] font-bold bg-gradient-to-r from-blue-700 to-violet-500 bg-clip-text w-fit text-transparent">
                         { project.name }
                     </div>
-                    <div className="text-xs text-gray-600 capitalize w-full text-center">{project.type} project</div>
-                    <div className='bg-white w-full h-full absolute top-0 left-0 z-[-1] rounded'>
+                    <div className='bg-blue-700 bg-opacity-10 w-[50%] min-w-[35px] absolute -top-3 -bottom-3 -left-5 z-[1]'>
 
                     </div>
                 </div>
-                <div className="mt-2 min-h-[200px] mb-4 relative mx-auto w-[90%] text-gray-600 text-sm">
-                    <div className="bg-gray-400 left-[40%] p-2 absolute w-[60%] -top-[28px] rounded flex sm:block justify-start items-center overflow-hidden overflow-x-auto space-x-2 sm:space-x-0">
-                        {project.site && <div className="flex justify-start items-center space-x-2 text-xs">
-                            <div className="font-bold">Site:</div>
-                            <a href={project.site} className="my-2 text-xs sm:text-sm text-blue-600">{ project.site }</a>
-                        </div>}
-                        {project.github?.link && <div className="flex justify-start items-center space-x-2 text-xs">
-                            <div className="font-bold">GitHub:</div>
-                            <a href={project.github.link} className="my-2 text-xs sm:text-sm text-blue-600">{ project.github.name }</a>
-                        </div>}
-                    </div>
 
-                    <div className="bg-white left-[40%] p-2 absolute w-[80%] top-[30%] rounded">
-                        <div className="font-bold">Description</div>
-                        <div className="my-2 text-xs sm:text-sm ">{ project.description }</div>
-                    </div>
+                { project.tagline ? <div className="text-xs text-center w-full mt-5 text-gray-500">{project.tagline}</div> : <></> }
 
-                    {project.allowContribution && <div className="-left-[20%] absolute w-[60%] top-[20%] rounded">
-                        <PrimaryButton onClick={() => showModal('contact')}>get in touch</PrimaryButton>
-                    </div>}
-                    
-                    <div className="bg-white -left-[15%] p-2 absolute w-[50%] top-[50%] rounded overflow-hidden overflow-y-auto h-44">
-                        <div className="font-bold mb-2">Stage</div>
-                        <div className="pb-4">
-                            {stages.map((stage, idx) => (
-                                <div key={idx} className="relative">
-                                    {idx < project.stage && <div className="absolute w-1 h-4 top-4 left-[6px] bg-green-600 z-10"></div>}
-                                    <div className="flex relative justify-start items-center space-x-2 space-y-4">
-                                        <div className="p-1 relative rounded-full w-fit h-fit bg-black">
-                                            <div className={`w-2 h-2 rounded-full ${idx < project.stage ? 'bg-green-600' : 'bg-gray-400'}`}></div>
+                <hr className={`mx-5 mb-4 ${project.tagline ? "mt-5" : "mt-10"}`} />
+
+                <div className="bg-white p-2 px-4">
+                    <div className="font-bold">Description</div>
+                    <div className="mt-2 text-xs sm:text-sm text-justify text-gray-600">
+                        { 
+                            showFullDescription ? 
+                                project.description : 
+                                project.description.slice(0, DESCRIPTION_LENGTH) + "..." 
+                        } 
+                        {
+                            project?.description?.length > DESCRIPTION_LENGTH + 10 ?
+                                <span
+                                    onClick={() => setShowFullDescription(!showFullDescription)}
+                                    className="text-sm ml-1 text-blue-500 cursor-pointer hover:underline"
+                                >show { showFullDescription ? "less" : "more"}</span> :
+                                <></>
+                        }
+                    </div>
+                </div>
+
+                {
+                    project.stage > 0 ?
+                    <>
+                        <hr className={`mx-5 mb-4 mt-5`} />
+
+                        <div className="bg-neutral-200 p-2 mx-auto w-[90%] rounded overflow-hidden overflow-x-auto">
+                            <div 
+                                title="toggle stages" 
+                                className="font-bold mb-2 cursor-pointer text-neutral-600 hover:text-neutral-900"
+                            >Software development lifecycle stage</div>
+                            {
+                                showStages ?
+                                <div className="pb-4 flex items-start justify-start space-x-4 overflow-hidden overflow-x-auto">
+                                    {stages.map((stage, idx) => (
+                                        <div key={idx} className="relative">
+                                            <div className="flex relative justify-start items-center space-x-2">
+                                                <div className={`w-2 h-2 rounded-full ${idx < project.stage - 1 ? 'bg-green-900' : 'bg-red-900'}`}></div>
+                                                <div
+                                                    className={`text-xs sm:text-sm text-nowrap ${idx < project.stage - 1 ? 'text-green-900' : 'text-red-900'}`}
+                                                >{stage}</div>
+                                            </div>
                                         </div>
-                                        <div
-                                            className="text-xs sm:text-sm text-nowrap"
-                                        >{stage}</div>
-                                    </div>
-                                </div>
-                            ))}
+                                    ))}
+                                </div> : <></>
+                            }
+                            
+                            <div
+                                onClick={() => setShowStages(!showStages)}
+                                className="text-xs text-neutral-600 cursor-pointer text-center my-2">click stages</div>
                         </div>
+                    </> : <></>
+                }
+
+                <hr className={`mx-5 mb-4 mt-5`} />
+
+                <div className="mt-2 mx-auto w-[90%] text-gray-600 text-sm">
+                    <div className="p-2 w-full flex md:flex-col md:items-start md:space-y-2 justify-start items-center overflow-hidden overflow-x-auto space-x-2 md:space-x-0">
+                        {project.site && <a title={project.site} href={project.site} className="bg-blue-600 transition-colors hover:bg-gradient-to-br hover:from-blue-700 hover:bg-purple-700 text-white rounded-lg p-2 px-4 ">
+                            Site
+                        </a>}
+                        {project.github?.link && <a title={project.github.link} href={project.github.link} className="bg-blue-600 transition-colors hover:bg-gradient-to-br hover:from-blue-700 hover:bg-purple-700 text-white rounded-lg p-2 px-4 ">
+                            GitHub - {project.github.name}
+                        </a>}
                     </div>
                 </div>
             </div>
+
+            {
+                project.allowContribution ? 
+                <div className="mt-6 pl-4">
+                    { project.contributionMessage && <div className="mb-2 text-sm text-neutral-600">{ project.contributionMessage }</div> }
+
+                    <PrimaryButton onClick={() => showModal('contact')}>get in touch</PrimaryButton>
+                </div> : <></>
+            }
         
             {(modalData.show && modalData.type == 'contact') && 
                 <Modal 
@@ -273,6 +322,6 @@ export default function Project({ className = '', project = null, children, ...p
                     close={() => clearAlert()}
                 />
             }
-        </>
+        </div>
     );
 }

@@ -164,8 +164,32 @@ export default function Welcome() {
                     </div>
                     
                     <div
-                        className='w-[80%] mx-auto sm:w-[60%] mt-4 text-slate-600 bg-slate-200 p-4 rounded shadow-sm text-sm'
-                    >Specialize in providing full stack solutions from database management through backend development to design of user-friendly interfaces.</div>
+                        className='w-fit mx-auto px-5 md:px-10 mt-4 text-slate-600 bg-slate-200 p-4 rounded shadow-sm text-sm'
+                    >
+                        <div>Specialize in:</div>
+                        <div className='mt-2 font-bold text-neutral-700'>
+                            <div className='flex items-center space-x-2'>
+                                <div className='w-2 h-2 rounded-full bg-gray-700'></div>
+                                <div className=''>Full-stack application development</div>
+                            </div>
+                            <div className='flex items-center space-x-2'>
+                                <div className='w-2 h-2 rounded-full bg-gray-700'></div>
+                                <div className=''>Database Adminstration</div>
+                            </div>
+                            <div className='flex items-center space-x-2'>
+                                <div className='w-2 h-2 rounded-full bg-gray-700'></div>
+                                <div className=''>Systems Adminstration</div>
+                            </div>
+                            <div className='flex items-center space-x-2'>
+                                <div className='w-2 h-2 rounded-full bg-gray-700'></div>
+                                <div className=''>DevOps</div>
+                            </div>
+                            <div className='flex items-center space-x-2'>
+                                <div className='w-2 h-2 rounded-full bg-gray-700'></div>
+                                <div className=''>Cloud infrastructure management</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -176,7 +200,7 @@ export default function Welcome() {
                     These are few of the things with which I am familiar.
                 </div>
 
-                <div className="w-full mx-auto sm:w-[80%] lg:w-[70%] sm:px-6 lg:px-8 ">
+                <div className="sm:px-6 lg:px-8 ">
                     <div className="overflow-hidden">
                         <Skills/>
                     </div>
