@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 
-export default function WriteableCode({ codes = [], title = '', output = '', speed = 100, className = '', children, ...props }) {
+export default function WriteableCode({
+    codes = [], title = '', output = '', minHeight = 200,
+    speed = 100, className = '', children, ...props
+}) {
 
     const [messageIndex, setMessageIndex] = useState(1)
     const [codeIndex, setCodeIndex] = useState(0)
@@ -41,7 +44,7 @@ export default function WriteableCode({ codes = [], title = '', output = '', spe
             {title && <div className="mb-4 text-base tracking-wide font-bold text-center">{title}</div>}
             <pre 
                 {...props} 
-                className={`min-h-[200px] min-w-[200px] overflow-x-auto`}
+                className={`min-h-[${minHeight}px] min-w-[200px] overflow-x-auto`}
             >
                 { codes.length ? codes[codeIndex].slice(0, messageIndex) : '' }
             </pre>

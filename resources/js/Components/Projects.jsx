@@ -12,7 +12,7 @@ export default function Projects({ className = '', children, ...props }) {
 
     return (
         <div {...props} className={`block font-medium text-sm text-gray-700 ` + className}>
-            <div className="w-full mx-auto lg:w-[90%] px-2 sm:px-6 lg:px-8">
+            <div className="w-full mx-auto lg:w-[90%]">
                 <div className='z-[3] text-nowrap bg-white text-2xl mb-4 font-bold bg-gradient-to-r from-blue-700 to-violet-500 bg-clip-text w-fit text-transparent'>Projects</div>
             </div>
             <div className="mt-2 mb-4 mx-auto w-[90%] text-gray-600 text-sm">This section shows the projects on which I am working, while indicating the various stages they have undergone.</div>

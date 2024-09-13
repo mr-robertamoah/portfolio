@@ -109,10 +109,10 @@ export default function Project({ className = '', project = null, children, ...p
 
                 <div className="mt-5 w-fit relative cursor-pointer mb-2 mx-auto">
                     <div 
-                        className="flex text-nowrap justify-between bg-white text-[24px] lg:text-[28px] font-bold bg-gradient-to-r from-blue-700 to-violet-500 bg-clip-text w-fit text-transparent">
+                        className="flex text-nowrap justify-between bg-white text-3xl lg:text-4xl font-bold bg-gradient-to-r from-blue-700 to-violet-500 bg-clip-text w-fit text-transparent">
                         { project.name }
                     </div>
-                    <div className='bg-blue-700 bg-opacity-10 w-[50%] min-w-[35px] absolute -top-3 -bottom-3 -left-5 z-[1]'>
+                    <div className='bg-blue-700 bg-opacity-10 w-[90%] min-w-[35px] absolute -top-3 -bottom-3 -left-5 z-[1]'>
 
                     </div>
                 </div>
@@ -141,6 +141,33 @@ export default function Project({ className = '', project = null, children, ...p
                 </div>
 
                 {
+                    project.skills?.length > 0 ?
+                    <div className="mt-6 px-3">
+                        <div className="mb-4 pb-2 w-fit px-2 relative text-sm text-neutral-700 font-semibold">
+                            <div>Skills used</div>
+                            <div className="absolute rounded bottom-0 right-0 w-full h-1 bg-gradient-to-r from-blue-600 to-purple-600"></div>
+                        </div>
+                        <div className={`${project.skills?.length > 0 ? "grid grid-cols-2" : "flex"} gap-2 pb-2`}>
+                            {
+                                project.skills.map((skill, idx) => (
+                                    <div
+                                        key={idx}
+                                        className=""
+                                    >
+                                        <div 
+                                            className="bg-blue-600 transition-colors hover:bg-gradient-to-br
+                                            hover:from-blue-700 hover:bg-purple-700 text-white
+                                            rounded-lg py-1 cursor-pointer px-4 mb-1 text-center"
+                                        >{skill.name}</div>
+                                        <div className="text-neutral-400 text-xs w-fit ml-auto">{skill.type}</div>
+                                    </div>
+                                ))
+                            }
+                        </div>
+                    </div> : <></>
+                }
+
+                {
                     project.stage > 0 ?
                     <>
                         <hr className={`mx-5 mb-4 mt-5`} />
@@ -156,9 +183,9 @@ export default function Project({ className = '', project = null, children, ...p
                                     {stages.map((stage, idx) => (
                                         <div key={idx} className="relative">
                                             <div className="flex relative justify-start items-center space-x-2">
-                                                <div className={`w-2 h-2 rounded-full ${idx < project.stage - 1 ? 'bg-green-900' : 'bg-red-900'}`}></div>
+                                                <div className={`w-2 h-2 rounded-full ${idx <= project.stage - 1 ? 'bg-green-900' : 'bg-red-900'}`}></div>
                                                 <div
-                                                    className={`text-xs sm:text-sm text-nowrap ${idx < project.stage - 1 ? 'text-green-900' : 'text-red-900'}`}
+                                                    className={`text-xs sm:text-sm text-nowrap ${idx <= project.stage - 1 ? 'text-green-900' : 'text-red-900'}`}
                                                 >{stage}</div>
                                             </div>
                                         </div>
@@ -176,13 +203,14 @@ export default function Project({ className = '', project = null, children, ...p
                 <hr className={`mx-5 mb-4 mt-5`} />
 
                 <div className="mt-2 mx-auto w-[90%] text-gray-600 text-sm">
-                    <div className="p-2 w-full flex md:flex-col md:items-start md:space-y-2 justify-start items-center overflow-hidden overflow-x-auto space-x-2 md:space-x-0">
-                        {project.site && <a title={project.site} href={project.site} className="bg-blue-600 transition-colors hover:bg-gradient-to-br hover:from-blue-700 hover:bg-purple-700 text-white rounded-lg p-2 px-4 ">
-                            Site
-                        </a>}
-                        {project.github?.link && <a title={project.github.link} href={project.github.link} className="bg-blue-600 transition-colors hover:bg-gradient-to-br hover:from-blue-700 hover:bg-purple-700 text-white rounded-lg p-2 px-4 ">
-                            GitHub - {project.github.name}
-                        </a>}
+                    <div className="p-2 w-full flex flex-col md:flex-row md:items-start space-y-2 md:space-y-0 justify-start items-center overflow-hidden overflow-x-auto space-x-0 md:space-x-2">
+                        {project.links.map((link, idx) => {
+                            if (!link.href) return <div key={idx}></div>
+
+                            return <a key={idx} title={link.href} href={link.href} className="text-blue-600 transition-colors hover:bg-gradient-to-br hover:from-blue-700 hover:bg-purple-700 hover:text-transparent bg-clip-text rounded-lg p-2 px-4 ">
+                                {link.type}{link.name ? ` - ${link.name}` : ''}
+                            </a>
+                        })}
                     </div>
                 </div>
             </div>

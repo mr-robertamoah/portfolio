@@ -16,6 +16,10 @@ import InputLabel from '@/Components/InputLabel';
 import TextInput from '@/Components/TextInput';
 import TextBox from '@/Components/TextBox';
 import Alert from '@/Components/Alert';
+import XIcon from '@/Icons/XIcon';
+import GitHubIcon from '@/Icons/GitHubIcon';
+import LinkedinIcon from '@/Icons/LinkedinIcon';
+import FacebookIcon from '@/Icons/FacebookIcon';
 
 export default function Welcome() {
     const { modalData, showModal, closeModal } = useModal()
@@ -131,7 +135,7 @@ export default function Welcome() {
                 </div>
                 
                 <div className='absolute bottom-0 left-0 w-full flex justify-center text-white font-bold'>
-                    <div className='mb-5 text-lg md:text-2xl'>let us build cool applications, one line of code at a time</div>
+                    <div className='mb-5 text-lg md:text-2xl w-[85%] sm:w-[90%] md:w-full text-center mx-auto'>let us build cool applications, one line of code at a time</div>
                 </div>
             </div>
 
@@ -170,26 +174,41 @@ export default function Welcome() {
                         <div>Specialize in:</div>
                         <div className='mt-2 font-bold text-neutral-700'>
                             <div className='flex items-center space-x-2'>
-                                <div className='w-2 h-2 rounded-full bg-gray-700'></div>
+                                <div className='w-2 h-2 rounded-full bg-gradient-to-br from-blue-700 to-purple-700'></div>
                                 <div className=''>Full-stack application development</div>
                             </div>
                             <div className='flex items-center space-x-2'>
-                                <div className='w-2 h-2 rounded-full bg-gray-700'></div>
+                                <div className='w-2 h-2 rounded-full bg-gradient-to-br from-blue-700 to-purple-700'></div>
                                 <div className=''>Database Adminstration</div>
                             </div>
                             <div className='flex items-center space-x-2'>
-                                <div className='w-2 h-2 rounded-full bg-gray-700'></div>
+                                <div className='w-2 h-2 rounded-full bg-gradient-to-br from-blue-700 to-purple-700'></div>
                                 <div className=''>Systems Adminstration</div>
                             </div>
                             <div className='flex items-center space-x-2'>
-                                <div className='w-2 h-2 rounded-full bg-gray-700'></div>
+                                <div className='w-2 h-2 rounded-full bg-gradient-to-br from-blue-700 to-purple-700'></div>
                                 <div className=''>DevOps</div>
                             </div>
                             <div className='flex items-center space-x-2'>
-                                <div className='w-2 h-2 rounded-full bg-gray-700'></div>
+                                <div className='w-2 h-2 rounded-full bg-gradient-to-br from-blue-700 to-purple-700'></div>
                                 <div className=''>Cloud infrastructure management</div>
                             </div>
                         </div>
+                    </div>
+
+                    <div className="mt-10 mx-auto w-[90%] sm:w-[70%] md:w-[60%] lg:w-[50%] flex items-center justify-center gap-2 sm:gap-4 md:gap-8">
+                        <a href="https://x.com/Mr_robertamoah">
+                            <XIcon className="w-10 h-10"/>
+                        </a>
+                        <a href="https://github.com/mr-robertamoah">
+                            <GitHubIcon className="w-10 h-10"/>
+                        </a>
+                        <a href="https://www.linkedin.com/in/mr-robert-amoah">
+                            <LinkedinIcon className="w-10 h-10"/>
+                        </a>
+                        <a href="https://www.facebook.com/share/anKqntjci1PuQDD3/">
+                            <FacebookIcon className="w-10 h-10"/>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -218,8 +237,8 @@ export default function Welcome() {
                 </div>
             </div>
             
-            <div className="py-6">
-                <div className="w-full mx-auto sm:w-[80%] lg:w-[70%] sm:px-6 lg:px-8 p-2">
+            <div className="py-6 bg-white">
+                <div className="w-full mx-auto lg:w-[90%] sm:px-6 lg:px-8 p-2">
                     <div className='z-[3] text-nowrap text-2xl mb-4 font-bold bg-gradient-to-r from-blue-700 to-violet-500 bg-clip-text w-fit text-transparent'>Code Snippets</div>
                     <div className="overflow-hidden">
                         <div className='w-[90%] mx-auto md:w-[80%] flex justify-start space-y-4 flex-col items-center px-4 pb-4'>
@@ -239,6 +258,7 @@ export default function Welcome() {
                                     `export default function PrimaryButton({\n\tclassName = '', disabled, children, ...props\n}) {\n\treturn (\n\t\t<button\n\t\t\t{...props}\n\t\t\tclassName={\n\t\t\t\t'inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 focus:bg-gray-700 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150 ' + \n\t\t\t\t\t(disabled ? 'opacity-25 ' : ' ')\n\t\t\t\t + className\n\t\t\t}\n\t\t\tdisabled={disabled}\n\t\t>\n\t\t\t{children}\n\t\t</button>\n\t);\n}`,
                                     `import PrimaryButton from '@/Components/PrimaryButton';\n\n<PrimaryButton>View</PrimaryButton>\n`
                                 ]}
+                                minHeight={400}
                             >
                                 <PrimaryButton>View</PrimaryButton>
                             </WriteableCode>

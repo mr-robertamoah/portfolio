@@ -35,9 +35,8 @@ export default function Skills() {
                 {
                     outlinedSkills.map((skill, idx) => {
                         return skill == activeSkill ?
-                        (<>
-                            <div 
-                                key={idx}
+                        (<div key={idx}>
+                            <div
                                 onClick={() => {
                                     setActiveSkill(skill)
                                 }}
@@ -51,11 +50,10 @@ export default function Skills() {
                                 </div>
                             </div>
                             { (idx < outlinedSkills.length - 1) ? <div className="mx-2 sm:hidden font-bold text-lg">|</div> : <></>}
-                        </>
+                        </div>
                         ) :
-                        <div className="flex items-center">
+                        <div className="flex items-center" key={idx}>
                             <div
-                                key={idx}
                                 onClick={() => {
                                     setActiveSkill(skill)
                                 }}
