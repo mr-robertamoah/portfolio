@@ -15,6 +15,9 @@ export default {
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
             },
+            width: {
+                'custom': 'calc(100% - 16px)'
+            }
         },
         keyframes: {
             gradient: {

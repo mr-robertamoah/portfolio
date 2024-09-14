@@ -99,7 +99,7 @@ export default function Service({ className = '', service = null, children, ...p
     }
 
     return (
-        <div className="bg-gray-200 flex flex-col pb-5 relative">
+        <div className="bg-gray-200 flex flex-col pb-5 relative h-fit">
             <div {...props} className={`flex items-center justify-center w-full relative font-medium text-sm text-gray-700 rounded-b-none rounded-md bg-gradient-to-br ${className} h-56`}>
                 <div className="absolute mt-5 -top-10 -left-3 w-fit pr-10 z-[1] pl-2 py-2 cursor-pointer mb-3">
                     <div 
@@ -156,6 +156,101 @@ export default function Service({ className = '', service = null, children, ...p
                     </div>
                 </div>
             }
+
+            <div>
+                {service.stagesName ? <div className="font-bold text-base pl-2 mt-5 mb-4">{service.stagesName}</div> : <></>}
+                <div className="w-fit mx-auto grid grid-cols-2 gap-0">
+                    {
+                        service.stages?.length > 0 && 
+                        service.stages?.map((stage, idx) => {
+                            switch (idx) {
+                                case 0:
+                                    return <div key={idx} className="relative p-2 py-4 w-[150px]">
+                                        <div
+                                            className="bg-gradient-to-r from-blue-700 to-purple-700 text-transparent
+                                                bg-clip-text px-4 py-2 font-bold text-base text-center"
+                                        >{ stage.name }</div>
+                                        <div className="absolute top-0 left-0 flex w-full items-center">
+
+                                            <div className="shrink-0 w-4 h-4 rounded-full bg-red-700"></div>
+                                            <div className="shrink-0 w-custom h-1 rounded-full bg-blue-700"></div>
+                                        </div>
+                                    </div>
+                                case 1:
+                                    return <div key={idx} className="relative p-2 py-4 w-[150px]">
+                                        <div
+                                            className="bg-gradient-to-r from-blue-700 to-purple-700 text-transparent
+                                                bg-clip-text px-4 py-2 font-bold text-base text-center"
+                                        >{ stage.name }</div>
+                                        <div className="absolute top-0 left-0 flex w-full items-center">
+
+                                            <div className="shrink-0 w-4 h-4 rounded-full bg-blue-700"></div>
+                                            <div className="shrink-0 w-custom h-1 rounded-full bg-blue-700"></div>
+                                        </div>
+                                            <div className="shrink-0 h-full absolute -right-1 top-[6px] w-1 rounded-full bg-blue-700"></div>
+                                    </div>
+                                case 2:
+                                    return <div key={idx} className="relative p-2 py-4 w-[150px] col-start-2">
+                                        <div
+                                            className="bg-gradient-to-r from-blue-700 to-purple-700 text-transparent
+                                                bg-clip-text px-4 py-2 font-bold text-base text-center"
+                                        >{ stage.name }</div>
+                                        <div className="absolute top-0 right-1 flex w-full items-center">
+
+                                            <div className="shrink-0 w-full h-1 rounded-full bg-blue-700"></div>
+                                            <div className="shrink-0 w-4 h-4 rounded-full bg-blue-700"></div>
+                                        </div>
+                                    </div>
+                                case 3:
+                                    return <div key={idx} className="relative p-2 py-4 w-[150px] col-start-1 row-start-2">
+                                        <div
+                                            className="bg-gradient-to-r from-blue-700 to-purple-700 text-transparent
+                                                bg-clip-text px-4 py-2 font-bold text-base text-center"
+                                        >{ stage.name }</div>
+                                        <div className="absolute top-0 left-0 flex w-full items-center">
+
+                                            <div className="shrink-0 w-custom h-1 rounded-full bg-blue-700"></div>
+                                            <div className="shrink-0 w-4 h-4 rounded-full bg-blue-700"></div>
+                                        </div>
+                                        <div className="shrink-0 h-full absolute -left-1 top-[6px] w-1 rounded-full bg-blue-700"></div>
+                                    </div>
+                                case 4:
+                                    return <div key={idx} className="relative p-2 py-4 w-[150px]">
+                                        <div
+                                            className="bg-gradient-to-r from-blue-700 to-purple-700 text-transparent
+                                                bg-clip-text px-4 py-2 font-bold text-base text-center"
+                                        >{ stage.name }</div>
+                                        <div className="absolute top-0 -left-2 flex w-full items-center">
+
+                                            <div className="shrink-0 w-4 h-4 rounded-full bg-blue-700"></div>
+                                            <div className="shrink-0 w-full h-1 rounded-full bg-blue-700"></div>
+                                        </div>
+                                    </div>
+                                case 5:
+                                    return <div key={idx} className="relative p-2 py-4 w-[150px]">
+                                        <div
+                                            className="bg-gradient-to-r from-blue-700 to-purple-700 text-transparent
+                                                bg-clip-text px-4 py-2 font-bold text-base text-center"
+                                        >{ stage.name }</div>
+                                        <div className="absolute top-0 left-0 flex w-full items-center">
+
+                                            <div className="shrink-0 w-4 h-4 rounded-full bg-blue-700"></div>
+                                            <div className="shrink-0 w-custom h-1 rounded-full bg-blue-700"></div>
+                                            <div className="shrink-0 w-4 h-4 rounded-sm bg-green-700"></div>
+                                        </div>
+                                    </div>
+                                default:
+                                    return <div key={idx} className="relative p-2 py-4 w-[150px]">
+                                        <div
+                                            className="bg-gradient-to-r from-blue-700 to-purple-700 text-transparent
+                                                bg-clip-text px-4 py-2 font-bold text-base text-center"
+                                        >{ stage.name }</div>
+                                    </div>
+                            }
+                        })
+                    }
+                </div>
+            </div>
 
             {service.allowContact && <div className="-right-2 absolute -bottom-[20px] rounded">
                 <PrimaryButton onClick={() => showModal('contact')}>get in touch</PrimaryButton>

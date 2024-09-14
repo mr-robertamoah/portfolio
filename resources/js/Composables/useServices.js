@@ -14,6 +14,15 @@ export default function useProject() {
             description: "Having an idea that requires a website, web application or mobile application? Do you not know what you require in the first place? Do not worry, even if you are out of budget I can create a payment plan that makes your life easier and your ideas a reality.",
             allowContact: true,
             experience: 4,
+            stagesName: "Stages I can help with",
+            stages: [
+                { name: "planning" },
+                { name: "designing" },
+                { name: "developing" },
+                { name: "testing" },
+                { name: "deploying" },
+                { name: "maintaining" },
+            ],
             tagline: "from planning your applications to deploying them, I am here to help",
             detailsPage: null
         },
