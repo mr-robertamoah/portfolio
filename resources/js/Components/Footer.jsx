@@ -7,6 +7,14 @@ import PrimaryButton from './PrimaryButton'
 import Alert from './Alert'
 import useModal from '@/Composables/useModal'
 import useAlert from '@/Composables/useAlert'
+import PhoneIcon from '@/Icons/PhoneIcon'
+import EmailIcon from '@/Icons/EmailIcon'
+import XIcon from '@/Icons/XIcon'
+import GitHubIcon from '@/Icons/GitHubIcon'
+import LinkedinIcon from '@/Icons/LinkedinIcon'
+import FacebookIcon from '@/Icons/FacebookIcon'
+import FacebookBlackIcon from '@/Icons/FacebookBlackIcon'
+import TextBox from './TextBox'
 
 export default function Footer() {
 
@@ -81,29 +89,92 @@ export default function Footer() {
     }
 
   return (
-    <div className="py-12">
-        <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div className="bg-white py-4 overflow-hidden shadow-sm sm:rounded-lg p-2 flex justify-between items-center">
-                <div>
-                    <div className="text-nowrap text-base mb-4 font-bold bg-gradient-to-r from-blue-700 to-violet-500 bg-clip-text w-fit text-transparent">Robert Amoah</div>
+    <div className="">
+        <div className="bg-gradient-to-tl from-blue-600 to-purple-700 py-12 
+            max-w-7xl mx-auto sm:px-6 lg:px-8 grid grid-cols-1 gap-10 sm:grid-cols-2"
+        >
+            <div className='bg-white p-4 rounded shadow w-fit m-auto sm:row-span-2 sm:h-full relative'>
+                <div
+                    className="text-nowrap text-base mb-4 font-bold bg-gradient-to-r md:text-lg
+                        from-blue-700 mx-auto to-violet-500 bg-clip-text w-fit text-transparent"
+                    >Robert Amoah</div>
 
-                    <div className='flex justify-start items-center space-x-2 text-gray-600 text-sm'>
-                        <span>Phone:</span>
-                        <span className='font-bold'>+233 24 63 4617</span>
-                    </div>
-                    
-                    <div className='flex justify-start items-center space-x-2 text-gray-600 text-sm'>
-                        <span>Email:</span>
-                        <span className='font-bold'>mr_robertamoah@yahoo.com</span>
-                    </div>
-                    
-                    <div className='flex justify-start mt-4 font-bold items-center space-x-2 text-gray-600 text-sm'>
+                <div className='flex justify-start items-center space-x-2 text-gray-600 mb-5 text-sm'>
+                    <span>
+                        <PhoneIcon className='w-5 h-5'/>
+                    </span>
+                    <span className='font-bold'>+233 24634617</span>
+                </div>
+                
+                <div className='flex justify-start items-center space-x-2 text-gray-600 text-sm'>
+                    <span>
+                        <EmailIcon className='w-5 h-5'/>
+                    </span>
+                    <span className='font-bold'>mr_robertamoah@yahoo.com</span>
+                </div>
+                
+                <div className='relative sm:absolute bottom-0 left-0 w-full'>
+                    <div
+                        className='flex justify-start mt-4 font-bold items-center space-x-2
+                            text-white text-sm p-2 rounded bg-gradient-to-br
+                            from-blue-700 to-teal-700 w-fit cursor-pointer mx-auto sm:mb-2'
+                        >
                         <span className='cursor-pointer' onClick={() => showModal('contact')}>Contact me</span>
                     </div>
                 </div>
-                <div className='flex relative mb-4'>  
-                    <ApplicationLogo className="w-12 h-12" />
+            </div>
+
+            <div>
+                <div className='relative w-fit mx-auto'>
+                    <div className='text-nowrap relative text-base mb-4 font-bold bg-gradient-to-r md:text-lg
+                        from-blue-700 to-violet-500 bg-clip-text w-fit text-transparent p-2 z-[1]'
+                    >Socials</div>
+                    <div className='bg-white absolute top-0 left-0 rounded w-[120%] h-full -rotate-6'></div>
                 </div>
+                <div className="mt-5 grid-cols-2 grid mx-auto w-fit gap-2">
+                    <a href="https://x.com/Mr_robertamoah" className='flex items-center justify-center'>
+                        <XIcon className="w-8 h-8"/>
+                    </a>
+                    <a href="https://github.com/mr-robertamoah" className='flex items-center justify-center'>
+                        <GitHubIcon className="w-8 h-8"/>
+                    </a>
+                    <a href="https://www.linkedin.com/in/mr-robert-amoah" className='flex items-center justify-center'>
+                        <LinkedinIcon className="w-8 h-8"/>
+                    </a>
+                    <a href="https://www.facebook.com/share/anKqntjci1PuQDD3/" className='flex items-center justify-center'>
+                        <FacebookBlackIcon className="w-8 h-8"/>
+                    </a>
+                </div>
+            </div>
+
+            <div className='sm:col-start-2'>
+                <div className='relative w-fit mx-auto'>
+                    <div className='text-nowrap relative text-base mb-4 font-bold bg-gradient-to-r md:text-lg
+                        from-blue-700 to-violet-500 bg-clip-text w-fit text-transparent p-2 z-[1]'
+                    >Services</div>
+                    <div className='bg-white absolute top-0 left-0 rounded w-[120%] h-full -rotate-6'></div>
+                </div>
+                <div className="mt-5 grid-cols-1 grid mx-auto w-fit gap-2">
+                    <div className='flex items-center gap-2'>
+                        <div className='w-3 h-3 rounded-full bg-white'></div>
+                        <div className='text-white text-sm md:text-base'>LetsProgram</div>
+                    </div>
+                    <div className='flex items-center gap-2'>
+                        <div className='w-3 h-3 rounded-full bg-white'></div>
+                        <div className='text-white text-sm md:text-base'>Freelance</div>
+                    </div>
+                    <div className='flex items-center gap-2'>
+                        <div className='w-3 h-3 rounded-full bg-white'></div>
+                        <div className='text-white text-sm md:text-base'>Contribution</div>
+                    </div>
+                </div>
+            </div>
+
+            <div
+                className='flex justify-center items-center w-24 h-24 pb-4 relative
+                    mb-4 rounded bg-white m-auto sm:col-span-full sm:row-start-4'
+                >  
+                <ApplicationLogo className="w-12 h-12" />
             </div>
         </div>
 

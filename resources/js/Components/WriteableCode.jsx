@@ -58,7 +58,7 @@ export default function WriteableCode({
                 </div>
             </>)}
 
-            <div className="hidden min-w-[400px]"></div>
+            <div className="hidden min-h-[450px]"></div>
         </div>
     );
 }

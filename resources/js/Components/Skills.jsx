@@ -49,7 +49,6 @@ export default function Skills() {
 
                                 </div>
                             </div>
-                            { (idx < outlinedSkills.length - 1) ? <div className="mx-2 sm:hidden font-bold text-lg">|</div> : <></>}
                         </div>
                         ) :
                         <div className="flex items-center" key={idx}>

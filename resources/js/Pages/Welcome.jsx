@@ -119,16 +119,16 @@ export default function Welcome() {
                     </div>
 
                     <div className="mt-10 mx-auto w-[90%] sm:w-[70%] md:w-[60%] lg:w-[50%] flex items-center justify-center gap-2 sm:gap-4 md:gap-8">
-                        <a href="https://x.com/Mr_robertamoah">
+                        <a href="https://x.com/Mr_robertamoah" title='@Mr_robertamoah'>
                             <XIcon className="w-10 h-10"/>
                         </a>
-                        <a href="https://github.com/mr-robertamoah">
+                        <a href="https://github.com/mr-robertamoah" title='@mr-robertamoah'>
                             <GitHubIcon className="w-10 h-10"/>
                         </a>
-                        <a href="https://www.linkedin.com/in/mr-robert-amoah">
+                        <a href="https://www.linkedin.com/in/mr-robert-amoah" title='@mr-robert-amoah'>
                             <LinkedinIcon className="w-10 h-10"/>
                         </a>
-                        <a href="https://www.facebook.com/share/anKqntjci1PuQDD3/">
+                        <a href="https://www.facebook.com/share/anKqntjci1PuQDD3/" title='Robert Paa Kwesi Amoah'>
                             <FacebookIcon className="w-10 h-10"/>
                         </a>
                     </div>
@@ -177,10 +177,10 @@ export default function Welcome() {
                                 title='Frontend Reactjs'
                                 className='min-w-[90%] sm:min-w-[70%] md:min-w-[50%] shrink-0'
                                 codes={[
-                                    `export default function PrimaryButton({\n\tclassName = '', disabled, children, ...props\n}) {\n\treturn (\n\t\t<button\n\t\t\t{...props}\n\t\t\tclassName={\n\t\t\t\t'inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 focus:bg-gray-700 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150 ' + \n\t\t\t\t\t(disabled ? 'opacity-25 ' : ' ')\n\t\t\t\t + className\n\t\t\t}\n\t\t\tdisabled={disabled}\n\t\t>\n\t\t\t{children}\n\t\t</button>\n\t);\n}`,
+                                    `export default function PrimaryButton({\n\tclassName = '', disabled, children, ...props\n}) {\n\treturn (\n\t\t<button\n\t\t\t{...props}\n\t\t\tclassName={\n\t\t\t\t'inline-flex items-center px-4 py-2 bg-gray-800\n\t\t\t\t\tborder border-transparent rounded-md font-semibold\n\t\t\t\t\ttext-xs text-white uppercase tracking-widest hover:bg-gray-700\n\t\t\t\t\tfocus:bg-gray-700 active:bg-gray-900 focus:outline-none\n\t\t\t\t\tfocus:ring-2 focus:ring-indigo-500 focus:ring-offset-2\n\t\t\t\t\ttransition ease-in-out duration-150 ' + \n\t\t\t\t\t(disabled ? 'opacity-25 ' : ' ')\n\t\t\t\t + className\n\t\t\t}\n\t\t\tdisabled={disabled}\n\t\t>\n\t\t\t{children}\n\t\t</button>\n\t);\n}`,
                                     `import PrimaryButton from '@/Components/PrimaryButton';\n\n<PrimaryButton>View</PrimaryButton>\n`
                                 ]}
-                                minHeight={400}
+                                minHeight={450}
                             >
                                 <PrimaryButton>View</PrimaryButton>
                             </WriteableCode>
