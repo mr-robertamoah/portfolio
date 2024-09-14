@@ -1,10 +1,4 @@
-import Alert from "@/Components/Alert";
 import ApplicationLogo from "@/Components/ApplicationLogo";
-import InputLabel from "@/Components/InputLabel";
-import Modal from "@/Components/Modal";
-import Select from "@/Components/Select";
-import TextBox from "@/Components/TextBox";
-import TextInput from "@/Components/TextInput";
 import useAlert from "@/Composables/useAlert";
 import useModal from "@/Composables/useModal";
 import { Head, router } from "@inertiajs/react";
@@ -13,83 +7,10 @@ import GuestLayout from '@/Layouts/GuestLayout';
 import WriteableText from "@/Components/WriteableText";
 import Module from "@/Components/Module";
 import Objective from "@/Components/Objective";
-import PrimaryButton from "@/Components/PrimaryButton";
 import Footer from "@/Components/Footer";
 
 export default function LetsProgram({}) {
-    const { modalData, showModal, closeModal } = useModal()
-    const { alertData, showSuccessAlert, showFailureAlert, clearAlert } = useAlert()
-
-    const [contacting, setContacting] = useState(false)
-
-    const [contactData, setContactData] = useState({
-        'name': '',
-        'email': '',
-        'phone': '',
-        'message': '',
-        'type': 'GENERAL',
-        'forType': 'Service',
-        'forId': 1,
-    })
-    
-    async function submitContact(e) {
-        e.preventDefault()
-
-        if (!contactData.name)
-            return showFailureAlert({
-                message: 'Please Name is required for this form.', time: 5000
-            })
-
-        if (!contactData.email && !contactData.phone)
-            return showFailureAlert({
-                message: 'Please enter either your Email or Phone Number so that Robert Amoah can get back to you.', time: 5000
-            })
-
-        if (!contactData.message)
-            return showFailureAlert({
-                message: 'Please write a message.', time: 5000
-            })
-
-        setContacting(true)
-
-        await axios.post(route('api.contacts.create'), {...contactData})
-            .then((res) => {
-                console.log(res)
-
-                showSuccessAlert({
-                    time: 5000,
-                    message: "You have successfully contacted Robert Amoah. You will be hearing from him soon."
-                })
-
-                clearContactData()
-
-                closeModal()
-            })
-            .catch((err) => {
-                console.log(err)
-
-                if (err.response?.message)
-                    return showFailureAlert({
-                        time: 5000,
-                        message: err.response.message
-                    })
-
-                showFailureAlert({
-                    time: 5000,
-                    message: "Something unfortunate happened. Please try again shortly."
-                })
-            })
-
-        setContacting(false)
-    }
-
-    function clearContactData() {
-        contactData.name = ''
-        contactData.email = ''
-        contactData.phone = ''
-        contactData.message = ''
-        contactData.type = ''
-    }
+    const [ showModal, setShowModal ] = useState(null)
 
     function clickedLogo() {
         router.get('/')
@@ -319,7 +240,7 @@ export default function LetsProgram({}) {
             <div className="py-12 bg-slate-200 my-20 relative">
                 <div className="w-full mx-auto sm:w-[90%] lg:w-[70%] sm:px-6 lg:px-8">
                     <div className="overflow-hidden sm:rounded-lg p-2">
-                        <div className='relative w-fit pr-10 z-[1] pl-2 py-2 cursor-pointer' onClick={() => showModal('contact')}>
+                        <div className='relative w-fit pr-10 z-[1] pl-2 py-2 cursor-pointer' onClick={() => setShowModal('contact')}>
                             <div 
                                 className="flex z-[3] justify-between bg-white text-2xl font-bold bg-gradient-to-r from-blue-700 to-violet-500 bg-clip-text w-fit text-transparent">
                                 Get in touch
@@ -337,7 +258,7 @@ export default function LetsProgram({}) {
                 <div className="w-full h-2 bg-gradient-to-r from-blue-700 to-pink-700 absolute bottom-0"></div>
             </div>
 
-            <Footer/>
+            <Footer modalText={showModal} clearModalText={() => setShowModal('')}/>
             
         </GuestLayout>
     )

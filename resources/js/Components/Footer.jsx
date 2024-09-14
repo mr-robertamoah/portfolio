@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import ApplicationLogo from './ApplicationLogo'
 import Modal from './Modal'
 import InputLabel from './InputLabel'
@@ -12,11 +12,10 @@ import EmailIcon from '@/Icons/EmailIcon'
 import XIcon from '@/Icons/XIcon'
 import GitHubIcon from '@/Icons/GitHubIcon'
 import LinkedinIcon from '@/Icons/LinkedinIcon'
-import FacebookIcon from '@/Icons/FacebookIcon'
 import FacebookBlackIcon from '@/Icons/FacebookBlackIcon'
 import TextBox from './TextBox'
 
-export default function Footer() {
+export default function Footer({ modalText = "", clearModalText = () => null }) {
 
     const { modalData, showModal, closeModal } = useModal()
     const { alertData, showSuccessAlert, showFailureAlert, clearAlert } = useAlert()
@@ -29,6 +28,12 @@ export default function Footer() {
         'message': '',
         'type': 'GENERAL',
     })
+
+    useEffect(() => {
+        if (!modalText?.length) return
+
+        showModal(modalText)
+    }, [modalText])
     
     function clearContactData() {
         contactData.name = ''
@@ -68,6 +73,7 @@ export default function Footer() {
 
                 clearContactData()
 
+                if (modalText) clearModalText()
                 closeModal()
             })
             .catch((err) => {
@@ -184,6 +190,8 @@ export default function Footer() {
                 show={modalData.show && modalData.type == 'contact'} 
                 onClose={() =>{
                     clearContactData()
+
+                    if (modalText) clearModalText()
                     closeModal()
                 }}
             >
