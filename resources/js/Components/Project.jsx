@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Modal from "./Modal";
 import PrimaryButton from "./PrimaryButton";
 import useModal from "@/Composables/useModal";

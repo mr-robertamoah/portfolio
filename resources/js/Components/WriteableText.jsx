@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 export default function WriteableText({ message = '', speed = 100, className = '', children, ...props }) {
 

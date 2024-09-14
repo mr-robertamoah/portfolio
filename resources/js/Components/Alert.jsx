@@ -1,4 +1,4 @@
-import { useEffect } from "react"
+import React, { useEffect } from "react"
 import Teleport from "./Teleport"
 
 export default function Alert({

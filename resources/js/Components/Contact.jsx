@@ -6,7 +6,7 @@ import PrimaryButton from "./PrimaryButton"
 import TextBox from "./TextBox"
 import TextInput from "./TextInput"
 import useAlert from "@/Composables/useAlert"
-import { useState } from "react"
+import React, { useState } from "react"
 
 export default function Contact({className = '', contact }) {
 

@@ -1,4 +1,4 @@
-import { useState } from "react"
+import React, { useState } from "react"
 import PrimaryButton from "./PrimaryButton"
 
 export default function ProjectComponent({ type = 'available', feature = null, children }) {
