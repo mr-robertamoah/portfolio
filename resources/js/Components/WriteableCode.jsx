@@ -57,6 +57,8 @@ export default function WriteableCode({
                     <div className="text-xs text-gray-500">output</div>
                 </div>
             </>)}
+
+            <div className="hidden min-w-[400px]"></div>
         </div>
     );
 }

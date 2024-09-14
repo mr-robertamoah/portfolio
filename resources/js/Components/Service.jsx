@@ -12,11 +12,13 @@ import { Link } from "@inertiajs/react";
 
 export default function Service({ className = '', service = null, children, ...props }) {
 
+    const DESCRIPTION_LENGTH = 200
+
     const { modalData, showModal, closeModal } = useModal()
     const { alertData, showSuccessAlert, showFailureAlert, clearAlert } = useAlert()
 
+    const [ showFullDescription, setShowFullDescription ] = useState(true)
     const [contacting, setContacting] = useState(false)
-
     const [contactData, setContactData] = useState({
         'name': '',
         'email': '',
@@ -28,7 +30,12 @@ export default function Service({ className = '', service = null, children, ...p
     })
 
     useEffect(() => {
+        if (!service?.description) return
+
+        if (service.description.length > DESCRIPTION_LENGTH + 10)
+            return setShowFullDescription(false)
         
+        setShowFullDescription(true)
     }, [])
     
     async function submitContact(e) {
@@ -92,9 +99,9 @@ export default function Service({ className = '', service = null, children, ...p
     }
 
     return (
-        <>
-            <div {...props} className={`block relative font-medium text-sm text-gray-700 rounded-md bg-gradient-to-br w-[90%] sm:w-[70%] from-purple-500 to-pink-400 via-blue-600` + className}>
-                <div className="absolute mt-5 -top-10 -left-8 w-fit pr-10 z-[1] pl-2 py-2 cursor-pointer mb-3">
+        <div className="bg-gray-200 flex flex-col pb-5 relative">
+            <div {...props} className={`flex items-center justify-center w-full relative font-medium text-sm text-gray-700 rounded-b-none rounded-md bg-gradient-to-br ${className} h-56`}>
+                <div className="absolute mt-5 -top-10 -left-3 w-fit pr-10 z-[1] pl-2 py-2 cursor-pointer mb-3">
                     <div 
                         className="flex z-[3] text-nowrap justify-between bg-white text-lg font-bold bg-gradient-to-r from-blue-700 to-violet-500 bg-clip-text w-fit text-transparent">
                         { service.name }
@@ -103,28 +110,56 @@ export default function Service({ className = '', service = null, children, ...p
 
                     </div>
                 </div>
-                <div className="mt-2 min-h-[200px] mb-4 relative mx-auto w-[90%] text-gray-600 text-sm">
-                    {service.experience && <div className="bg-gray-400 -left-[20%] p-2 absolute w-[60%] -bottom-[20px] rounded flex sm:block justify-start items-center overflow-hidden overflow-x-auto space-x-2 sm:space-x-0">
-                        <div className="flex justify-start items-center space-x-2 text-xs">
-                            <div className="font-bold">Experience:</div>
-                            <div className="my-2 text-xs sm:text-sm text-white">{ service.experience } year{ service.experience > 1 ? 's' : ''}</div>
-                        </div>
-                    </div>}
 
-                    {service.detailsPage && <div className="bg-gray-400 -left-[20%] w-fit p-2 absolute text-white bottom-[50px] rounded flex sm:block justify-start items-center overflow-hidden overflow-x-auto space-x-2 sm:space-x-0">
+                <div className="text-white text-base sm:text-lg w-full px-4 text-center font-bold">{ service.tagline }</div>
+
+                {
+                    service.detailsPage && 
+                    <div className="right-3 w-fit px-2 py-1 absolute
+                        bottom-3 rounded
+                        text-purple-700 bg-white text-base sm:text-lg font-bold cursor-pointer
+                        "
+                    >
                         <Link href={service.detailsPage}>Visit Page</Link>
-                    </div>}
-
-                    <div className="bg-white left-[40%] p-2 absolute w-[80%] top-[30%] rounded">
-                        <div className="font-bold">Description</div>
-                        <div className="my-2 text-xs sm:text-sm ">{ service.description }</div>
                     </div>
+                }
 
-                    {service.allowContact && <div className="-left-[20%] absolute w-[60%] top-[20%] rounded">
-                        <PrimaryButton onClick={() => showModal('contact')}>get in touch</PrimaryButton>
-                    </div>}
+            </div>
+
+            <div className="mt-2 min-h-[200px] mb-4 relative text-gray-600 text-sm">
+                <div className="font-bold text-base pl-2 mt-5">Description</div>
+                <div className="bg-white p-2 mt-4 mx-auto w-[90%] rounded transition-all duration-100 shadow">
+                    <div className="mt-4 px-4 mb-2 text-sm text-neutral-600 text-justify">
+                    { 
+                            showFullDescription ? 
+                                service.description : 
+                                service.description.slice(0, DESCRIPTION_LENGTH) + "..." 
+                        } 
+                        {
+                            service?.description?.length > DESCRIPTION_LENGTH + 10 ?
+                                <span
+                                    onClick={() => setShowFullDescription(!showFullDescription)}
+                                    className="text-sm ml-1 text-blue-500 cursor-pointer hover:underline"
+                                >show { showFullDescription ? "less" : "more"}</span> :
+                                <></>
+                        }
+                    </div>
                 </div>
             </div>
+
+            {
+                service.experience && 
+                <div className="w-full mb-5">
+                    <div className="font-bold text-base pl-2 mt-5">Experience</div>
+                    <div className="bg-blue-600 p-2 mt-4 shadow mx-auto w-[90%] rounded flex justify-start items-center space-x-2 text-xs">
+                        <div className="my-2 text-center w-full text-xs sm:text-sm text-white">{ service.experience } year{ service.experience > 1 ? 's' : ''} of experience</div>
+                    </div>
+                </div>
+            }
+
+            {service.allowContact && <div className="-right-2 absolute -bottom-[20px] rounded">
+                <PrimaryButton onClick={() => showModal('contact')}>get in touch</PrimaryButton>
+            </div>}
         
             {(modalData.show && modalData.type == 'contact') && 
                 <Modal 
@@ -251,6 +286,6 @@ export default function Service({ className = '', service = null, children, ...p
                     close={() => clearAlert()}
                 />
             }
-        </>
+        </div>
     );
 }

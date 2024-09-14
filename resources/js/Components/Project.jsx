@@ -100,7 +100,7 @@ export default function Project({ className = '', project = null, children, ...p
     }
 
     return (
-        <div className="flex flex-col w-full">
+        <div className="flex flex-col w-full shadow-sm">
             <div {...props} className={`font-medium text-sm text-gray-700 rounded-md bg-white w-full ` + className}>
                 <div className="mx-auto mt-8 mb-10 flex items-center space-x-2 justify-between w-fit bg-gray-200 rounded-sm p-2">
                     <div className="rounded-full w-2 h-2 bg-slate-600"></div>
