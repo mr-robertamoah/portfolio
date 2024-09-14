@@ -1,6 +1,4 @@
 import ApplicationLogo from "@/Components/ApplicationLogo";
-import useAlert from "@/Composables/useAlert";
-import useModal from "@/Composables/useModal";
 import { Head, router } from "@inertiajs/react";
 import { useState } from "react";
 import GuestLayout from '@/Layouts/GuestLayout';
@@ -18,13 +16,18 @@ export default function LetsProgram({}) {
 
     return (
         <GuestLayout
-            className="w-full"
+            className="w-full overflow-hidden"
         >
             <Head title="LetsProgram" />
 
-            <div className="bg-gradient-to-br from-blue-500 via-purple-600 to-pink-300 h-[90vh] border-b border-gray-100 relative">
+            <div className="bg-gradient-to-br from-blue-500 via-purple-600 to-pink-300 lg:h-[95vh] h-[90vh] border-b border-gray-100 relative">
+                <div
+                    onClick={clickedLogo}
+                    className="absolute top-2 right-2 rounde p-2 bg-white
+                        text-purple-700 cursor-pointer rounded shadow"
+                >Home</div>
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20">
-                    <div className='space-y-10 md:space-x-10 md:flex md:justify-between md:items-center'>
+                    <div className='space-y-10'>
                         <div>
                             <div className='relative w-fit pr-10 z-[1] pl-2 py-2'>
                                 <div 
@@ -36,9 +39,9 @@ export default function LetsProgram({}) {
                                 </div>
                             </div>
 
-                            <div className='relative w-fit pr-10 z-[1] pl-2 py-2 mt-20'>
+                            <div className='relative w-fit pr-2 sm:pr-10 z-[1] pl-2 py-2 mt-20'>
                                 <WriteableText
-                                    className="flex z-[3] justify-between bg-white text-2xl sm:text-3xl font-bold bg-gradient-to-r from-blue-700 to-violet-500 bg-clip-text w-fit text-transparent"
+                                    className="flex z-[3] justify-between bg-white text-wrap sm:text-nowrap text-lg sm:text-3xl font-bold bg-gradient-to-r from-blue-700 to-violet-500 bg-clip-text w-fit text-transparent"
                                     message={'Let our learners be involved in tech'}
                                 />
                                 <div className='bg-white w-full h-full absolute top-0 left-0 z-[-1] rounded'>
@@ -47,12 +50,12 @@ export default function LetsProgram({}) {
                             </div>
                         </div>
                         
-                        <div className='w-[90%] mx-auto flex justify-center md:block md:w-[40%] md:mr-8'>
-                            <div>
+                        <div className='w-[90%] mx-auto flex flex-col sm:flex-row items-center sm:items-start justify-center'>
+                            <div className="md:mr-10">
                                 <div className="text-white font-bold text-2xl w-fit">Lets get them from</div>
                                 <div className="h-2 mb-4 w-[50%] bg-gradient-to-r from-purple-700 to-blue-700 rounded"></div>
                             </div>
-                            <div className='flex relative mt-10 md:mt-0'>
+                            <div className='flex relative mt-10 lg:-mt-5'>
                                 <div className="relative">
                                     <div className="absolute -bottom-[40%] opacity-60 -right-[44%] w-44 h-44 lg:w-64 lg:h-64 bg-gradient-to-b from-indigo-800 border-t-green-600 z-[3]">
                                         <div className="text-2xl absolute top-5 uppercase text-white font-bold">to</div>
