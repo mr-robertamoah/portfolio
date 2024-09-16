@@ -9,7 +9,7 @@ export default function useArticles() {
             ]
         },
         {
-            id: 1,
+            id: 2,
             title: "Continuous Deployment on AWS EC2 Using AWS Systems Manager in GitHub Actions",
             url: "https://medium.com/@mr_robertamoah/continuous-deployment-on-aws-ec2-using-aws-systems-manager-in-github-actions-9b258399d74c",
             skills: [

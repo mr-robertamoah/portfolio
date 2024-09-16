@@ -1,14 +1,6 @@
 export default function useProject() {
     return [
         {
-            id: 1,
-            name: "LetsProgram",
-            description: "This is an initiative to bring coding to basic and junior high levels of our educational system. If your school is interested in having it's learners study programming and build interesting web applications while being introduced to the world of technology.",
-            allowContact: true,
-            detailsPage: '/letsprogram',
-            tagline: "lets build the future tech generation together",
-        },
-        {
             id: 2,
             name: "Freelance",
             description: "Having an idea that requires a website, web application or mobile application? Do you not know what you require in the first place? Do not worry, even if you are out of budget I can create a payment plan that makes your life easier and your ideas a reality.",
@@ -34,6 +26,14 @@ export default function useProject() {
             experience: 1,
             tagline: "need free or paid help on a project, let's contribute to it",
             detailsPage: null
+        },
+        {
+            id: 1,
+            name: "LetsProgram",
+            description: "This is an initiative to bring coding to basic and junior high levels of our educational system. If your school is interested in having it's learners study programming and build interesting web applications while being introduced to the world of technology.",
+            allowContact: true,
+            detailsPage: '/letsprogram',
+            tagline: "lets build the future tech generation together",
         },
     ]
 }
