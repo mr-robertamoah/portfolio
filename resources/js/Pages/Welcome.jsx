@@ -1,3 +1,4 @@
+import React from 'react';
 import Avatar from '@/Components/Avatar';
 import Skills from '@/Components/Skills';
 import WriteableCode from '@/Components/WriteableCode';
@@ -13,6 +14,7 @@ import GitHubIcon from '@/Icons/GitHubIcon';
 import LinkedinIcon from '@/Icons/LinkedinIcon';
 import FacebookIcon from '@/Icons/FacebookIcon';
 import Footer from '@/Components/Footer';
+import ArticlesAndBooks from '@/Components/ArticlesAndBooks';
 
 export default function Welcome() {
     return (
@@ -202,6 +204,12 @@ export default function Welcome() {
                     <div className="overflow-hidden sm:rounded-lg p-2">
                         <Services/>
                     </div>
+                </div>
+            </div>
+
+            <div className="py-12 bg-slate-200">
+                <div className="w-full sm:px-6 lg:px-8">
+                    <ArticlesAndBooks/>
                 </div>
             </div>
 

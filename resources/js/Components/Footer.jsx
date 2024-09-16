@@ -275,7 +275,7 @@ export default function Footer({ modalText = "", clearModalText = () => null }) 
                             </div>
                             
                             <div className="mt-4 flex justify-end">
-                                <PrimaryButton>send</PrimaryButton>
+                                <PrimaryButton type="submit">send</PrimaryButton>
                             </div>
                         </form>
                     </div>
