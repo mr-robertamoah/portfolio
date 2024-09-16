@@ -176,7 +176,7 @@ export default function Project({ className = '', project = null, children, ...p
                             <div 
                                 title="toggle stages" 
                                 className="font-bold mb-2 cursor-pointer text-neutral-600 hover:text-neutral-900"
-                            >Software development lifecycle stage</div>
+                            >Software development lifecycle stages</div>
                             {
                                 showStages ?
                                 <div className="pb-4 flex items-start justify-start space-x-4 overflow-hidden overflow-x-auto">
@@ -195,7 +195,7 @@ export default function Project({ className = '', project = null, children, ...p
                             
                             <div
                                 onClick={() => setShowStages(!showStages)}
-                                className="text-xs text-neutral-600 cursor-pointer text-center my-2">click stages</div>
+                                className="text-xs text-neutral-600 cursor-pointer text-center my-2">{showStages ? "hide" : "show"} stages</div>
                         </div>
                     </> : <></>
                 }
