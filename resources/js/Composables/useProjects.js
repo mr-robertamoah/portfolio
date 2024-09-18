@@ -59,7 +59,7 @@ export default function useProjects() {
             ],
             stage: 2,
             allowContribution: true,
-            type: ProjectTypes.openSource
+            type: ProjectTypes.individual
         },
         {
             id: 5,

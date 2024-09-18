@@ -10,7 +10,7 @@ export default function ArticlesAndBooks() {
   return (
     <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10'>
         <div className='w-full lg:col-span-2'>
-            <div className="w-full mx-auto lg:w-[90%]">
+            <div className="w-full mx-auto lg:w-[90%] px-2">
                 <div className='z-[3] text-nowrap bg-white text-2xl mb-4 font-bold bg-gradient-to-r from-blue-700 to-violet-500 bg-clip-text w-fit text-transparent'
                 >Articles</div>
             </div>
@@ -45,7 +45,7 @@ export default function ArticlesAndBooks() {
             </div>
         </div>
         <div className='col-start-1 md:col-start-2 lg:col-start-3'>
-            <div className="w-full">
+            <div className="w-full px-2">
                 <div className='z-[3] text-nowrap bg-white text-2xl mb-4 font-bold bg-gradient-to-r from-blue-700 to-violet-500 bg-clip-text w-fit text-transparent'
                 >Recommended Books</div>
             </div>
