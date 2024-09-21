@@ -109,7 +109,7 @@ export default function Footer({ modalText = "", clearModalText = () => null }) 
                     <span>
                         <PhoneIcon className='w-5 h-5'/>
                     </span>
-                    <span className='font-bold'>+233 24634617</span>
+                    <span className='font-bold'>+233245634617</span>
                 </div>
                 
                 <div className='flex justify-start items-center space-x-2 text-gray-600 text-sm'>
