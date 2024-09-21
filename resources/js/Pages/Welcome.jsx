@@ -29,8 +29,8 @@ export default function Welcome() {
                         <div className='col-span-2'>
                             <div className='relative w-fit pr-10 z-[1] pl-2 py-2'>
                                 <div 
-                                    className="flex z-[3] justify-between bg-white text-5xl md:text-7xl font-bold bg-gradient-to-r from-blue-700 to-violet-500 bg-clip-text w-fit text-transparent">
-                                    WELCOME
+                                    className="flex z-[3] justify-between bg-white text-2xl sm:text-4xl md:text-6xl font-bold bg-gradient-to-r from-blue-700 to-violet-500 bg-clip-text w-fit text-transparent">
+                                    TheRobertAmoah Project
                                 </div>
                                 <div className='bg-white w-full h-full absolute top-0 left-0 z-[-1] rounded'>
 
@@ -39,8 +39,8 @@ export default function Welcome() {
 
                             <div className='relative w-fit mx-auto pr-10 z-[1] pl-2 py-2 mt-20'>
                                 <WriteableText 
-                                    className="flex z-[3] justify-between bg-white text-xl md:text-2xl font-bold bg-gradient-to-r from-blue-700 to-violet-500 bg-clip-text w-fit text-transparent"
-                                    message={'Your Full-Stack Developer'}
+                                    className="flex z-[3] justify-between bg-white text-lg sm:text-xl md:text-2xl font-bold bg-gradient-to-r from-blue-700 to-violet-500 bg-clip-text w-fit text-transparent"
+                                    message={'Your Full-Stack DevOps Engineer'}
                                     speed={200}
                                 />
                                 <div className='bg-white w-full h-full absolute top-0 left-0 z-[-1] rounded'>
@@ -65,7 +65,7 @@ export default function Welcome() {
 
             <div className="py-12">
                 <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                    <div className="overflow-hidden flex justify-center items-center space-x-5">
+                    <div className="overflow-hidden flex flex-col sm:flex-row justify-center items-center space-x-5">
                         <div
                             className="w-[120px] h-[120px] sm:w-[150px] sm:h-[150px] shrink-0"
                         >
@@ -75,9 +75,9 @@ export default function Welcome() {
                         </div>
 
                         <div className=''>
-                            <div className='relative w-fit pr-10 z-[1] pl-2 py-2'>
+                            <div className='relative w-fit pr-2 sm:pr-10 mx-auto z-[1] pl-2 py-2'>
                                 <div 
-                                    className="flex z-[3] justify-between bg-white text-2xl font-bold bg-gradient-to-r from-blue-700 to-violet-500 bg-clip-text w-fit text-transparent">
+                                    className="flex z-[3] justify-between text-center bg-white text-xl sm:text-2xl font-bold bg-gradient-to-r from-blue-700 to-violet-500 bg-clip-text w-fit text-transparent">
                                     Robert Amoah
                                 </div>
                                 <div className='bg-white w-full h-full absolute top-0 left-0 z-[-1] rounded'>
@@ -86,7 +86,7 @@ export default function Welcome() {
                             </div>
                             <div className='bg-gradient-to-r from-blue-700 to-violet-500 w-[205px] h-2 rounded-lg my-4'></div>
                             <div
-                                className="flex z-[3] justify-between bg-white text-2xl font-bold bg-gradient-to-r from-blue-700 to-violet-500 bg-clip-text w-fit text-transparent"
+                                className="flex z-[3] mx-auto justify-between bg-white text-xl sm:text-2xl font-bold bg-gradient-to-r from-blue-700 to-violet-500 bg-clip-text w-fit text-transparent"
                             >Software Engineer</div>
                             <div className='bg-gradient-to-r from-blue-700 to-violet-500 w-[205px] h-2 rounded-lg my-4'></div>
                         </div>
